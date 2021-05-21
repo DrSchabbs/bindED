@@ -1,5 +1,7 @@
 # bindED
 
+Forked Note: Not official, this is a version that uses the first line of the file to have BindED working on oddyssey until @AlterNERDtive comes up with the real solution.
+
 This VoiceAttack plugin reads keybindings in Elite:Dangerous and stores them as
 VoiceAttack variables. It has originally been written by Gary (the developer of
 VoiceAttack) [and published on the VoiceAttack
@@ -15,21 +17,21 @@ details).
 
 Grab `bindEDplugin.zip` from the [release
 page](https://github.com/alterNERDtive/bindED/releases/latest) and extract it
-into your VoiceAttackís `Apps` directory.
+into your VoiceAttack‚Äôs `Apps` directory.
 
 ## Migrating from the Old Plugin
 
 If you use this as a drop-in replacement for the initial version all commands
 invoking the plugin will throw an error message. Gary has asked me to change the
-pluginís GUID, and the plugin with the old one will no longer be found.
+plugin‚Äôs GUID, and the plugin with the old one will no longer be found.
 
 _That is irrelevant in basically all cases and can safely be ignored_. Binds
 will be read automatically when VoiceAttack starts, and when they change.
 
 ## Usage
 
-You donít have to do anything! When VoiceAttack loads, bindED will automatically
-detect your bindings. It will also keep a watchful eye on Eliteís bindings
+You don‚Äôt have to do anything! When VoiceAttack loads, bindED will automatically
+detect your bindings. It will also keep a watchful eye on Elite‚Äôs bindings
 folder and reload them when there is a change!
 
 If something goes awry, you can still manually call the `loadbinds` plugin
@@ -49,7 +51,7 @@ Horizons or Odyssey.
 
 To keep hassle to a minimum, the recommended way to change binds is to do it
 from Odyssey. When a change to the Odyssey file is detected, the plugin will
-by default overwrite Horizonsí binds with it. To prevent that and keep entirely
+by default overwrite Horizons‚Äô binds with it. To prevent that and keep entirely
 separate binds, you can set `bindED.disableHorizonsSync#` (yes, including the
 pound sign) to `true` in your VoiceAttack profile.
 
@@ -60,11 +62,11 @@ Shipped layouts:
 * en-GB
 * de-neo2
 
-If you are using any non-US layout you might have noticed that some binds donít
+If you are using any non-US layout you might have noticed that some binds don‚Äôt
 work. Elite internally uses keycode values (a number assigned to each key on the
 keyboard) for its bindings but for some reason both displays and saves them as
 keysyms (the label on the key), according to the UK QWERTY keyboard layout. That
-means VoiceAttack canít just send the keysym it reads from a binding, it has to
+means VoiceAttack can‚Äôt just send the keysym it reads from a binding, it has to
 translate it into the corresponding keycode.
 
 The original plugin contained a `EDMap.txt` file that contains information on
@@ -76,14 +78,14 @@ I have added the option to use maps for other keyboard layouts. In order to do
 so you will have to set a text variable in VoiceAttack called `bindED.layout#`
 to the layout you want to use. BindED will be notified of the variable changing
 and reload your bindings with the appropriate key map. If the variable is not
-set it will defaut to ìen-usî, leaving the original behaviour intact.
+set it will defaut to ‚Äúen-us‚Äù, leaving the original behaviour intact.
 
 I have included a map file for [Neo2](https://neo-layout.org)
 (`EDMap-de-neo2.txt`) which is the layout that I am using personally. If you are
 on a different layout, you will have to create a corresponding map file yourself
 or prod me to add it. E.g. for the french AZERTY it would be `EDMap-fr-fr.text`
-and set `bindED.layout#` to ìfr-frî. For US Dvorak, `EDmap-en-us-dvorak` and
-ìen-us-dvorakî. You can see where this is going.
+and set `bindED.layout#` to ‚Äúfr-fr‚Äù. For US Dvorak, `EDmap-en-us-dvorak` and
+‚Äúen-us-dvorak‚Äù. You can see where this is going.
 
 For more information on [creating new supported keyboard layouts see the
 Wiki](https://github.com/alterNERDtive/bindED/wiki/Keyboard-Layouts).
