@@ -287,12 +287,13 @@ namespace bindEDplugin
             {
                 throw new FileNotFoundException("No 'StartPreset.start' file found. Please run Elite: Dangerous at least once, then restart VoiceAttack.");
             }
-            return File.ReadAllText(startFile);
+            return File.ReadLines(startFile).First();
         }
 
         private static string DetectBindsFile(string? preset)
         {
             DirectoryInfo dirInfo = new DirectoryInfo(_bindingsDir);
+            //FileInfo[] bindFiles = dirInfo.GetFiles().Where(i => Regex.Match(i.Name, $@"^{preset}(\.4\.0)?\.binds$").Success).OrderByDescending(p => p.LastWriteTime).ToArray();
             FileInfo[] bindFiles = dirInfo.GetFiles()
                 .Where(i => Regex.Match(i.Name, $@"^{preset}(\.[34]\.0)?\.binds$").Success)
                 .OrderByDescending(p => p.LastWriteTime).ToArray();
